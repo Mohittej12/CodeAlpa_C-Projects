@@ -1,0 +1,78 @@
+//CGPA CALCULATOR-Program Code
+#include <iostream>       
+#include <iomanip>        
+using namespace std;
+
+int main() {
+    int numCourses;               
+    float grade, credit;
+    float totalCredits = 0;
+    float totalGradePoints = 0;
+
+    cout << "===== CGPA Calculator =====\n";
+    cout << "Enter the number of courses: ";
+    cin >> numCourses;
+
+ 
+    float grades[numCourses], credits[numCourses];
+
+    for (int i = 0; i < numCourses; i++) {
+        cout << "\nCourse " << (i + 1) << ":\n";
+
+        
+        cout << "Enter grade (e.g., 9.0 for A): ";
+        cin >> grade;
+
+        
+        cout << "Enter credit hours: ";
+        cin >> credit;
+
+       
+        grades[i] = grade;
+        credits[i] = credit;
+
+        
+        totalGradePoints += grade * credit;
+        totalCredits += credit;
+    }
+
+  
+    float cgpa = totalGradePoints / totalCredits;
+
+    cout << "\n===== Result =====\n";
+    cout << fixed << setprecision(2);  
+
+    for (int i = 0; i < numCourses; i++) {
+        cout << "Course " << (i + 1) << " -> Grade: " << grades[i]
+             << ", Credits: " << credits[i] << "\n";
+    }
+
+    cout << "Total Credits: " << totalCredits << endl;
+    cout << "CGPA: " << cgpa << "\n";
+
+    return 0;
+}
+
+//Program Output
+===== CGPA Calculator =====
+Enter the number of courses: 2
+
+Course 1:
+Enter grade (e.g., 9.0 for A): 7
+Enter credit hours: 5
+
+Course 2:
+Enter grade (e.g., 9.0 for A): 6
+Enter credit hours: 8
+
+===== Result =====
+Course 1 -> Grade: 7.00, Credits: 5.00
+Course 2 -> Grade: 6.00, Credits: 8.00
+Total Credits: 13.00
+CGPA: 6.38
+
+--------------------------------
+Process exited after 7.731 seconds with return value 0
+Press any key to continue . . .
+
+
