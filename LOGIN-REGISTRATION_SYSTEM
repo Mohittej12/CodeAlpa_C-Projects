@@ -1,0 +1,54 @@
+//Login and registration system- Program Code
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    int ch;
+    string user, pass, u, p;
+    cout << "1.Register  2.Login\nEnter choice: ";
+    cin >> ch;
+
+    cout << "Username: "; cin >> user;
+    cout << "Password: "; cin >> pass;
+
+    if (ch == 1) {
+        ofstream f("users.txt", ios::app);
+        f << user << " " << pass << "\n";
+        cout << "Registered!\n";
+    } else if (ch == 2) {
+        ifstream f("users.txt");
+        bool ok = false;
+        while (f >> u >> p) {
+            if (u == user && p == pass) ok = true;
+        }
+        cout << (ok ? "Login successful!\n" : "Login failed!\n");
+    }
+
+    return 0;
+}
+
+
+#Program Output
+1.Register  2.Login
+Enter choice: 1
+Username: sekhar
+Password: 1234
+Registered!
+
+--------------------------------
+Process exited after 10.43 seconds with return value 0
+Press any key to continue . . .
+
+1.Register  2.Login
+Enter choice: 2
+Username: sekhar
+Password: 1234
+Login successful!
+
+--------------------------------
+Process exited after 10.09 seconds with return value 0
+Press any key to continue . . .
+
+
+
